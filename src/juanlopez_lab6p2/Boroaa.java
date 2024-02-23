@@ -62,6 +62,8 @@ public class Boroaa extends javax.swing.JFrame {
         pp_jugador = new javax.swing.JPopupMenu();
         jmi_modificar = new javax.swing.JMenuItem();
         jmi_eliminar = new javax.swing.JMenuItem();
+        pp_elim = new javax.swing.JPopupMenu();
+        jmi_elimi = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -293,6 +295,14 @@ public class Boroaa extends javax.swing.JFrame {
             }
         });
         pp_jugador.add(jmi_eliminar);
+
+        jmi_elimi.setText("jMenuItem1");
+        jmi_elimi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_elimiActionPerformed(evt);
+            }
+        });
+        pp_elim.add(jmi_elimi);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -542,7 +552,12 @@ public class Boroaa extends javax.swing.JFrame {
         DefaultTreeModel m=(DefaultTreeModel)jt_mercado.getModel();
         DefaultMutableTreeNode raiz=(DefaultMutableTreeNode) m.getRoot();
         DefaultMutableTreeNode pais=new DefaultMutableTreeNode(t.getPais());
-        DefaultMutableTreeNode nom=new DefaultMutableTreeNode(t.getNombre());
+        DefaultMutableTreeNode nom=new DefaultMutableTreeNode(t);
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString().equals(t.getPais())) {
+                
+            }
+        }
         pais.add(nom);
         raiz.add(pais);
         m.reload();
@@ -556,6 +571,9 @@ public class Boroaa extends javax.swing.JFrame {
 
     private void bt_florentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_florentinoMouseClicked
         // TODO add your handling code here:
+        if(jl_jugadores.getSelectedIndex()>=0){
+            //if()
+        }
     }//GEN-LAST:event_bt_florentinoMouseClicked
 
     private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
@@ -565,6 +583,10 @@ public class Boroaa extends javax.swing.JFrame {
         jl_jugadores.setModel(q);
         
     }//GEN-LAST:event_jmi_eliminarActionPerformed
+
+    private void jmi_elimiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_elimiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmi_elimiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -631,12 +653,14 @@ int control=0;
     private javax.swing.JDialog jd_jugador;
     private javax.swing.JDialog jd_transferencia;
     private javax.swing.JList<String> jl_jugadores;
+    private javax.swing.JMenuItem jmi_elimi;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_equ;
     private javax.swing.JMenuItem jmi_juga;
     private javax.swing.JMenuItem jmi_modificar;
     private javax.swing.JMenuItem jmi_trans;
     private javax.swing.JTree jt_mercado;
+    private javax.swing.JPopupMenu pp_elim;
     private javax.swing.JPopupMenu pp_jugador;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JTextField tf_ciudad;
