@@ -4,6 +4,8 @@
  */
 package juanlopez_lab6p2;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author jjlm1
@@ -36,6 +38,7 @@ public class Boroaa extends javax.swing.JFrame {
         tf_nombre = new javax.swing.JTextField();
         tf_ciudad = new javax.swing.JTextField();
         tf_estadio = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jd_jugador = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -44,12 +47,13 @@ public class Boroaa extends javax.swing.JFrame {
         tf_name = new javax.swing.JTextField();
         sp_edad = new javax.swing.JSpinner();
         jb_posicion = new javax.swing.JComboBox<>();
+        bt_jugador = new javax.swing.JButton();
         jd_transferencia = new javax.swing.JDialog();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jl_jugadores = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_mercado = new javax.swing.JTree();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -85,6 +89,8 @@ public class Boroaa extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Crear equipo");
+
         javax.swing.GroupLayout jd_equipoLayout = new javax.swing.GroupLayout(jd_equipo.getContentPane());
         jd_equipo.getContentPane().setLayout(jd_equipoLayout);
         jd_equipoLayout.setHorizontalGroup(
@@ -92,6 +98,7 @@ public class Boroaa extends javax.swing.JFrame {
             .addGroup(jd_equipoLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
@@ -132,7 +139,9 @@ public class Boroaa extends javax.swing.JFrame {
                 .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(tf_estadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Crear Jugadores");
@@ -147,6 +156,13 @@ public class Boroaa extends javax.swing.JFrame {
 
         jb_posicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Portero", "Defensa", "Mediocampista", "Delantero", "Aguatero" }));
 
+        bt_jugador.setText("Crear jugador");
+        bt_jugador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_jugadorMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jd_jugadorLayout = new javax.swing.GroupLayout(jd_jugador.getContentPane());
         jd_jugador.getContentPane().setLayout(jd_jugadorLayout);
         jd_jugadorLayout.setHorizontalGroup(
@@ -158,15 +174,18 @@ public class Boroaa extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jd_jugadorLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_name)
-                            .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jb_posicion, 0, 160, Short.MAX_VALUE))))
+                        .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_jugador)
+                            .addGroup(jd_jugadorLayout.createSequentialGroup()
+                                .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_name)
+                                    .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jb_posicion, 0, 160, Short.MAX_VALUE))))))
                 .addContainerGap(187, Short.MAX_VALUE))
         );
         jd_jugadorLayout.setVerticalGroup(
@@ -186,21 +205,19 @@ public class Boroaa extends javax.swing.JFrame {
                 .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jb_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(bt_jugador)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jLabel11.setText("Transferencias");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        jl_jugadores.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_jugadores);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("JTree");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane2.setViewportView(jTree1);
+        jt_mercado.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(jt_mercado);
 
         javax.swing.GroupLayout jd_transferenciaLayout = new javax.swing.GroupLayout(jd_transferencia.getContentPane());
         jd_transferencia.getContentPane().setLayout(jd_transferenciaLayout);
@@ -342,16 +359,25 @@ public class Boroaa extends javax.swing.JFrame {
 
     private void jmi_transActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_transActionPerformed
         // TODO add your handling code here:
+        jd_transferencia.pack(); 
+        jd_transferencia.setLocationRelativeTo(this);
+        jd_transferencia.setModal(true);
         jd_transferencia.setVisible(true);
     }//GEN-LAST:event_jmi_transActionPerformed
 
     private void jmi_jugaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_jugaActionPerformed
         // TODO add your handling code here:
+        jd_jugador.pack(); 
+        jd_jugador.setLocationRelativeTo(this);
+        jd_jugador.setModal(true);
         jd_jugador.setVisible(true);
     }//GEN-LAST:event_jmi_jugaActionPerformed
 
     private void jmi_equActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_equActionPerformed
         // TODO add your handling code here:
+        jd_equipo.pack(); 
+        jd_equipo.setLocationRelativeTo(this);
+        jd_equipo.setModal(true);
         jd_equipo.setVisible(true);
     }//GEN-LAST:event_jmi_equActionPerformed
 
@@ -362,6 +388,13 @@ public class Boroaa extends javax.swing.JFrame {
     private void tf_ciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ciudadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_ciudadActionPerformed
+
+    private void bt_jugadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_jugadorMouseClicked
+        // TODO add your handling code here:
+        DefaultListModel m=(DefaultListModel) jl_jugadores.getModel();
+        m.addElement(new Jugadores(tf_name.getText(), jb_posicion.getSelectedItem().toString(), (Integer)sp_edad.getValue()));
+        jl_jugadores.setModel(m);
+    }//GEN-LAST:event_bt_jugadorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -399,9 +432,11 @@ public class Boroaa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_jugador;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -413,7 +448,6 @@ public class Boroaa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -421,14 +455,15 @@ public class Boroaa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JTree jTree1;
     private javax.swing.JComboBox<String> jb_posicion;
     private javax.swing.JDialog jd_equipo;
     private javax.swing.JDialog jd_jugador;
     private javax.swing.JDialog jd_transferencia;
+    private javax.swing.JList<String> jl_jugadores;
     private javax.swing.JMenuItem jmi_equ;
     private javax.swing.JMenuItem jmi_juga;
     private javax.swing.JMenuItem jmi_trans;
+    private javax.swing.JTree jt_mercado;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JTextField tf_ciudad;
     private javax.swing.JTextField tf_estadio;
