@@ -4,7 +4,11 @@
  */
 package juanlopez_lab6p2;
 
+import java.awt.HeadlessException;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -54,6 +58,9 @@ public class Boroaa extends javax.swing.JFrame {
         jl_jugadores = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_mercado = new javax.swing.JTree();
+        pp_jugador = new javax.swing.JPopupMenu();
+        jmi_modificar = new javax.swing.JMenuItem();
+        jmi_eliminar = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -90,6 +97,11 @@ public class Boroaa extends javax.swing.JFrame {
         });
 
         jButton4.setText("Crear equipo");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_equipoLayout = new javax.swing.GroupLayout(jd_equipo.getContentPane());
         jd_equipo.getContentPane().setLayout(jd_equipoLayout);
@@ -97,26 +109,26 @@ public class Boroaa extends javax.swing.JFrame {
             jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_equipoLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4)
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(tf_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_ciudad))
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_pais, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(tf_nombre)))
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(78, 78, 78)
-                        .addComponent(tf_estadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tf_estadio, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                     .addComponent(jLabel6))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jd_equipoLayout.setVerticalGroup(
             jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,6 +225,11 @@ public class Boroaa extends javax.swing.JFrame {
         jLabel11.setText("Transferencias");
 
         jl_jugadores.setModel(new DefaultListModel());
+        jl_jugadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_jugadoresMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jl_jugadores);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("JTree");
@@ -245,6 +262,17 @@ public class Boroaa extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
+
+        jmi_modificar.setText("Modificar");
+        jmi_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarActionPerformed(evt);
+            }
+        });
+        pp_jugador.add(jmi_modificar);
+
+        jmi_eliminar.setText("Eliminar");
+        pp_jugador.add(jmi_eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -409,6 +437,9 @@ public class Boroaa extends javax.swing.JFrame {
         DefaultListModel m=(DefaultListModel) jl_jugadores.getModel();
         m.addElement(new Jugadores(tf_name.getText(), jb_posicion.getSelectedItem().toString(), (Integer)sp_edad.getValue()));
         jl_jugadores.setModel(m);
+        tf_name.setText("");
+        jb_posicion.setSelectedItem("Portero");
+        sp_edad.setValue(15);
     }//GEN-LAST:event_bt_jugadorMouseClicked
 
     private void btl_equMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_equMouseClicked
@@ -434,6 +465,85 @@ public class Boroaa extends javax.swing.JFrame {
         jd_transferencia.setModal(true);
         jd_transferencia.setVisible(true);
     }//GEN-LAST:event_btl_transMouseClicked
+
+    private void jmi_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarActionPerformed
+        // TODO add your handling code here:
+        try{
+        String nuevo=JOptionPane.showInputDialog("Ingrese el nuevo nombre");
+        int ed=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva edad entre 15 y 45"));
+            int centi=0;
+        if (nuevo.contains("1")) {
+                centi++;
+            }else if (nuevo.contains("2")) {
+                centi++;
+            }else if (nuevo.contains("3")) {
+                centi++;
+            }else if (nuevo.contains("4")) {
+                centi++;
+            }else if (nuevo.contains("5")) {
+                centi++;
+            }else if (nuevo.contains("6")) {
+                centi++;
+            }else if (nuevo.contains("7")) {
+                centi++;
+            }else if (nuevo.contains("8")) {
+                centi++;
+            }else if (nuevo.contains("9")) {
+                centi++;
+            }else if (nuevo.contains("0")) {
+                centi++;
+            }
+//        int centi=0;
+//        for (int i = 0; i < nuevo.length(); i++) {
+//            char x=nuevo.charAt(i);
+//            for (int j = 0; j < 10; j++) {
+//                char y=(char) j;
+//                JOptionPane.showMessageDialog(jd_transferencia, y);
+//                if (x==y) {
+//                    centi++;
+//                }
+//            }
+//        }
+            if (centi==0&&ed>=15&&ed<=45) {
+                DefaultListModel s=(DefaultListModel)jl_jugadores.getModel();
+                ((Jugadores) s.get(control)).setNombre(nuevo);
+                ((Jugadores) s.get(control)).setEdad(ed);
+            }else{
+                JOptionPane.showMessageDialog(jd_transferencia, "Error en la modificación");
+            }
+        }catch (HeadlessException | NumberFormatException ex){
+            JOptionPane.showMessageDialog(jd_transferencia, "Error en la nueva edad");
+        }
+        
+    }//GEN-LAST:event_jmi_modificarActionPerformed
+
+    private void jl_jugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_jugadoresMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            if(jl_jugadores.getSelectedIndex()>=0){
+                control=jl_jugadores.getSelectedIndex();
+                pp_jugador.show(jd_transferencia, evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jl_jugadoresMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        Equipos t =new Equipos(tf_nombre.getText(), tf_nombre.getText(), tf_ciudad.getText(), tf_estadio.getText());
+        DefaultTreeModel m=(DefaultTreeModel)jt_mercado.getModel();
+        DefaultMutableTreeNode raiz=(DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode pais=new DefaultMutableTreeNode(t.getPais());
+        DefaultMutableTreeNode nom=new DefaultMutableTreeNode(t.getNombre());
+        pais.add(nom);
+        raiz.add(pais);
+        m.reload();
+        tf_nombre.setText("");
+        tf_ciudad.setText("");
+        tf_estadio.setText("");
+        tf_pais.setText("");
+        
+        
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -469,7 +579,7 @@ public class Boroaa extends javax.swing.JFrame {
             }
         });
     }
-
+int control=0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_jugador;
     private javax.swing.JButton btl_equ;
@@ -499,10 +609,13 @@ public class Boroaa extends javax.swing.JFrame {
     private javax.swing.JDialog jd_jugador;
     private javax.swing.JDialog jd_transferencia;
     private javax.swing.JList<String> jl_jugadores;
+    private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_equ;
     private javax.swing.JMenuItem jmi_juga;
+    private javax.swing.JMenuItem jmi_modificar;
     private javax.swing.JMenuItem jmi_trans;
     private javax.swing.JTree jt_mercado;
+    private javax.swing.JPopupMenu pp_jugador;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JTextField tf_ciudad;
     private javax.swing.JTextField tf_estadio;
