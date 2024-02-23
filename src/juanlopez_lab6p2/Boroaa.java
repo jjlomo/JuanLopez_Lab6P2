@@ -578,15 +578,35 @@ public class Boroaa extends javax.swing.JFrame {
     private void bt_florentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_florentinoMouseClicked
         // TODO add your handling code here:
         control=jl_jugadores.getSelectedIndex();
+        try{
         if(jl_jugadores.getSelectedIndex()>=0){
             Equipos p;
             Jugadores c;
             DefaultListModel ss=(DefaultListModel)jl_jugadores.getModel();
+            DefaultTreeModel tt=(DefaultTreeModel)jt_mercado.getModel();
             c=((Jugadores)ss.get(control));
             String nomb=c.getNombre();
             DefaultMutableTreeNode nombree=new DefaultMutableTreeNode(nomb);
+            DefaultMutableTreeNode posi=new DefaultMutableTreeNode(c.getPosicion());
+            Object trans=jt_mercado.getSelectionPath().getLastPathComponent();
+            DefaultMutableTreeNode compa=(DefaultMutableTreeNode)trans;
+            if (compa.getUserObject()instanceof Equipos) {
+                int cont=0;
+                for (int i = 0; i < compa.getChildCount(); i++) {
+                    if (compa.getChildAt(i).toString().equals(c.getPosicion())) {
+                        ((DefaultMutableTreeNode)compa.getChildAt(i)).add(nombree);
+                        cont++;
+                    }
+                }
+                if (cont==0) {
+                    compa.add(posi);
+                    posi.add(nombree);
+                }
+                tt.reload();
+            }
                 
-            
+        }
+        }catch(Exception ex){
         }
     }//GEN-LAST:event_bt_florentinoMouseClicked
 
