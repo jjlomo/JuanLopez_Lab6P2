@@ -42,7 +42,7 @@ public class Boroaa extends javax.swing.JFrame {
         tf_nombre = new javax.swing.JTextField();
         tf_ciudad = new javax.swing.JTextField();
         tf_estadio = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        bt_agregar = new javax.swing.JButton();
         jd_jugador = new javax.swing.JDialog();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -58,7 +58,7 @@ public class Boroaa extends javax.swing.JFrame {
         jl_jugadores = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_mercado = new javax.swing.JTree();
-        jButton1 = new javax.swing.JButton();
+        bt_florentino = new javax.swing.JButton();
         pp_jugador = new javax.swing.JPopupMenu();
         jmi_modificar = new javax.swing.JMenuItem();
         jmi_eliminar = new javax.swing.JMenuItem();
@@ -97,10 +97,10 @@ public class Boroaa extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Crear equipo");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_agregar.setText("Crear equipo");
+        bt_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                bt_agregarMouseClicked(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class Boroaa extends javax.swing.JFrame {
             .addGroup(jd_equipoLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4)
+                    .addComponent(bt_agregar)
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
@@ -153,7 +153,7 @@ public class Boroaa extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(tf_estadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(bt_agregar)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -237,10 +237,10 @@ public class Boroaa extends javax.swing.JFrame {
         jt_mercado.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(jt_mercado);
 
-        jButton1.setText("Here we go");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        bt_florentino.setText("Here we go");
+        bt_florentino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                bt_florentinoMouseClicked(evt);
             }
         });
 
@@ -261,7 +261,7 @@ public class Boroaa extends javax.swing.JFrame {
                         .addComponent(jLabel11))
                     .addGroup(jd_transferenciaLayout.createSequentialGroup()
                         .addGap(124, 124, 124)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt_florentino, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_transferenciaLayout.setVerticalGroup(
@@ -274,7 +274,7 @@ public class Boroaa extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(bt_florentino)
                 .addGap(20, 20, 20))
         );
 
@@ -287,6 +287,11 @@ public class Boroaa extends javax.swing.JFrame {
         pp_jugador.add(jmi_modificar);
 
         jmi_eliminar.setText("Eliminar");
+        jmi_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarActionPerformed(evt);
+            }
+        });
         pp_jugador.add(jmi_eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -508,17 +513,6 @@ public class Boroaa extends javax.swing.JFrame {
             }else if (nuevo.contains("0")) {
                 centi++;
             }
-//        int centi=0;
-//        for (int i = 0; i < nuevo.length(); i++) {
-//            char x=nuevo.charAt(i);
-//            for (int j = 0; j < 10; j++) {
-//                char y=(char) j;
-//                JOptionPane.showMessageDialog(jd_transferencia, y);
-//                if (x==y) {
-//                    centi++;
-//                }
-//            }
-//        }
             if (centi==0&&ed>=15&&ed<=45) {
                 DefaultListModel s=(DefaultListModel)jl_jugadores.getModel();
                 ((Jugadores) s.get(control)).setNombre(nuevo);
@@ -542,7 +536,7 @@ public class Boroaa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jl_jugadoresMouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void bt_agregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarMouseClicked
         // TODO add your handling code here:
         Equipos t =new Equipos(tf_nombre.getText(), tf_pais.getText(), tf_ciudad.getText(), tf_estadio.getText());
         DefaultTreeModel m=(DefaultTreeModel)jt_mercado.getModel();
@@ -558,11 +552,19 @@ public class Boroaa extends javax.swing.JFrame {
         tf_pais.setText("");
         
         
-    }//GEN-LAST:event_jButton4MouseClicked
+    }//GEN-LAST:event_bt_agregarMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void bt_florentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_florentinoMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_bt_florentinoMouseClicked
+
+    private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel q=(DefaultListModel)jl_jugadores.getModel();
+        q.remove(control);
+        jl_jugadores.setModel(q);
+        
+    }//GEN-LAST:event_jmi_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -600,12 +602,12 @@ public class Boroaa extends javax.swing.JFrame {
     }
 int control=0;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_agregar;
+    private javax.swing.JButton bt_florentino;
     private javax.swing.JButton bt_jugador;
     private javax.swing.JButton btl_equ;
     private javax.swing.JButton btl_juga;
     private javax.swing.JButton btl_trans;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
