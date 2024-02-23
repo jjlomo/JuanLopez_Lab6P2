@@ -553,14 +553,20 @@ public class Boroaa extends javax.swing.JFrame {
         DefaultMutableTreeNode raiz=(DefaultMutableTreeNode) m.getRoot();
         DefaultMutableTreeNode pais=new DefaultMutableTreeNode(t.getPais());
         DefaultMutableTreeNode nom=new DefaultMutableTreeNode(t);
+        int ocu=0;
         for (int i = 0; i < raiz.getChildCount(); i++) {
             if (raiz.getChildAt(i).toString().equals(t.getPais())) {
-                
+                ((DefaultMutableTreeNode)raiz.getChildAt(i)).add(nom);
+                ocu++;
             }
         }
+        if(ocu==0){
         pais.add(nom);
         raiz.add(pais);
         m.reload();
+        }else{
+            
+        }
         tf_nombre.setText("");
         tf_ciudad.setText("");
         tf_estadio.setText("");
@@ -571,8 +577,16 @@ public class Boroaa extends javax.swing.JFrame {
 
     private void bt_florentinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_florentinoMouseClicked
         // TODO add your handling code here:
+        control=jl_jugadores.getSelectedIndex();
         if(jl_jugadores.getSelectedIndex()>=0){
-            //if()
+            Equipos p;
+            Jugadores c;
+            DefaultListModel ss=(DefaultListModel)jl_jugadores.getModel();
+            c=((Jugadores)ss.get(control));
+            String nomb=c.getNombre();
+            DefaultMutableTreeNode nombree=new DefaultMutableTreeNode(nomb);
+                
+            
         }
     }//GEN-LAST:event_bt_florentinoMouseClicked
 
