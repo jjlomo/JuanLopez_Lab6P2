@@ -58,6 +58,7 @@ public class Boroaa extends javax.swing.JFrame {
         jl_jugadores = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_mercado = new javax.swing.JTree();
+        jButton1 = new javax.swing.JButton();
         pp_jugador = new javax.swing.JPopupMenu();
         jmi_modificar = new javax.swing.JMenuItem();
         jmi_eliminar = new javax.swing.JMenuItem();
@@ -232,24 +233,36 @@ public class Boroaa extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jl_jugadores);
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("JTree");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("**Equipos**");
         jt_mercado.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(jt_mercado);
+
+        jButton1.setText("Here we go");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_transferenciaLayout = new javax.swing.GroupLayout(jd_transferencia.getContentPane());
         jd_transferencia.getContentPane().setLayout(jd_transferenciaLayout);
         jd_transferenciaLayout.setHorizontalGroup(
             jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_transferenciaLayout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(jLabel11)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jd_transferenciaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
+            .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(jLabel11))
+                    .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_transferenciaLayout.setVerticalGroup(
             jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +273,9 @@ public class Boroaa extends javax.swing.JFrame {
                 .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(20, 20, 20))
         );
 
         jmi_modificar.setText("Modificar");
@@ -529,7 +544,7 @@ public class Boroaa extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        Equipos t =new Equipos(tf_nombre.getText(), tf_nombre.getText(), tf_ciudad.getText(), tf_estadio.getText());
+        Equipos t =new Equipos(tf_nombre.getText(), tf_pais.getText(), tf_ciudad.getText(), tf_estadio.getText());
         DefaultTreeModel m=(DefaultTreeModel)jt_mercado.getModel();
         DefaultMutableTreeNode raiz=(DefaultMutableTreeNode) m.getRoot();
         DefaultMutableTreeNode pais=new DefaultMutableTreeNode(t.getPais());
@@ -544,6 +559,10 @@ public class Boroaa extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -585,6 +604,7 @@ int control=0;
     private javax.swing.JButton btl_equ;
     private javax.swing.JButton btl_juga;
     private javax.swing.JButton btl_trans;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
