@@ -57,9 +57,9 @@ public class Boroaa extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btl_equ = new javax.swing.JButton();
+        btl_juga = new javax.swing.JButton();
+        btl_trans = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_equ = new javax.swing.JMenuItem();
@@ -257,26 +257,41 @@ public class Boroaa extends javax.swing.JFrame {
         jToolBar1.setBackground(new java.awt.Color(0, 102, 102));
         jToolBar1.setRollover(true);
 
-        jButton1.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        jButton1.setText("Crear Equipo");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton1);
+        btl_equ.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        btl_equ.setText("Crear Equipo");
+        btl_equ.setFocusable(false);
+        btl_equ.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btl_equ.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btl_equ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btl_equMouseClicked(evt);
+            }
+        });
+        jToolBar1.add(btl_equ);
 
-        jButton3.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        jButton3.setText("Transferencias");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
+        btl_juga.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        btl_juga.setText("Crear Jugadores");
+        btl_juga.setFocusable(false);
+        btl_juga.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btl_juga.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btl_juga.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btl_jugaMouseClicked(evt);
+            }
+        });
+        jToolBar1.add(btl_juga);
 
-        jButton2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
-        jButton2.setText("Crear Jugadores");
-        jButton2.setFocusable(false);
-        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton2);
+        btl_trans.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 14)); // NOI18N
+        btl_trans.setText("Transferencias");
+        btl_trans.setFocusable(false);
+        btl_trans.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btl_trans.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btl_trans.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btl_transMouseClicked(evt);
+            }
+        });
+        jToolBar1.add(btl_trans);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -396,6 +411,30 @@ public class Boroaa extends javax.swing.JFrame {
         jl_jugadores.setModel(m);
     }//GEN-LAST:event_bt_jugadorMouseClicked
 
+    private void btl_equMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_equMouseClicked
+        // TODO add your handling code here:
+        jd_equipo.pack(); 
+        jd_equipo.setLocationRelativeTo(this);
+        jd_equipo.setModal(true);
+        jd_equipo.setVisible(true);
+    }//GEN-LAST:event_btl_equMouseClicked
+
+    private void btl_jugaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_jugaMouseClicked
+        // TODO add your handling code here:
+        jd_jugador.pack(); 
+        jd_jugador.setLocationRelativeTo(this);
+        jd_jugador.setModal(true);
+        jd_jugador.setVisible(true);
+    }//GEN-LAST:event_btl_jugaMouseClicked
+
+    private void btl_transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_transMouseClicked
+        // TODO add your handling code here:
+        jd_transferencia.pack(); 
+        jd_transferencia.setLocationRelativeTo(this);
+        jd_transferencia.setModal(true);
+        jd_transferencia.setVisible(true);
+    }//GEN-LAST:event_btl_transMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -433,9 +472,9 @@ public class Boroaa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_jugador;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btl_equ;
+    private javax.swing.JButton btl_juga;
+    private javax.swing.JButton btl_trans;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
