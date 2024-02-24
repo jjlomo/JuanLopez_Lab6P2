@@ -64,6 +64,8 @@ public class Boroaa extends javax.swing.JFrame {
         jmi_eliminar = new javax.swing.JMenuItem();
         pp_elim = new javax.swing.JPopupMenu();
         jmi_elimi = new javax.swing.JMenuItem();
+        pp_transferencia = new javax.swing.JPopupMenu();
+        jmi_eli = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
@@ -237,6 +239,11 @@ public class Boroaa extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("**Equipos**");
         jt_mercado.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_mercado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_mercadoMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jt_mercado);
 
         bt_florentino.setText("Here we go");
@@ -303,6 +310,14 @@ public class Boroaa extends javax.swing.JFrame {
             }
         });
         pp_elim.add(jmi_elimi);
+
+        jmi_eli.setText("Eliminar equipo");
+        jmi_eli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliActionPerformed(evt);
+            }
+        });
+        pp_transferencia.add(jmi_eli);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -613,14 +628,54 @@ public class Boroaa extends javax.swing.JFrame {
     private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
         // TODO add your handling code here:
         DefaultListModel q=(DefaultListModel)jl_jugadores.getModel();
+        String nombre=((Jugadores)q.getElementAt(control)).getNombre();
         q.remove(control);
         jl_jugadores.setModel(q);
+        DefaultTreeModel rr=(DefaultTreeModel)jt_mercado.getModel();
+        DefaultMutableTreeNode r=(DefaultMutableTreeNode)rr.getRoot();
+        for (int i = 0; i < r.getChildCount(); i++) {
+            DefaultMutableTreeNode pp=((DefaultMutableTreeNode)r.getChildAt(i));
+            for (int j = 0; j < pp.getChildCount(); j++) {
+                DefaultMutableTreeNode ee=((DefaultMutableTreeNode)pp.getChildAt(j));
+                for (int k = 0; k < ee.getChildCount(); k++) {
+                    DefaultMutableTreeNode po=((DefaultMutableTreeNode)ee.getChildAt(k));
+                    for (int l = 0; l < po.getChildCount(); l++) {
+                        DefaultMutableTreeNode jj=((DefaultMutableTreeNode)po.getChildAt(l));
+                        if (jj.toString().equals(nombre)){
+                        rr.removeNodeFromParent(jj);
+                        }
+                    }
+                }
+            }
+        }
+        rr.reload();
         
     }//GEN-LAST:event_jmi_eliminarActionPerformed
 
     private void jmi_elimiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_elimiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmi_elimiActionPerformed
+
+    private void jt_mercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_mercadoMouseClicked
+        // TODO add your handling code here:
+        if (evt.isMetaDown()) {
+            Object com=jt_mercado.getSelectionPath().getLastPathComponent();
+            DefaultMutableTreeNode del=(DefaultMutableTreeNode)com;
+            if (del.getUserObject()instanceof Equipos) {
+                pp_transferencia.show(jd_transferencia, evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jt_mercadoMouseClicked
+
+    private void jmi_eliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel mm=(DefaultTreeModel)jt_mercado.getModel();
+        Object com=jt_mercado.getSelectionPath().getLastPathComponent();
+            DefaultMutableTreeNode del=(DefaultMutableTreeNode)com;
+            del.removeFromParent();
+            mm.reload();
+            
+    }//GEN-LAST:event_jmi_eliActionPerformed
 
     /**
      * @param args the command line arguments
@@ -687,6 +742,7 @@ int control=0;
     private javax.swing.JDialog jd_jugador;
     private javax.swing.JDialog jd_transferencia;
     private javax.swing.JList<String> jl_jugadores;
+    private javax.swing.JMenuItem jmi_eli;
     private javax.swing.JMenuItem jmi_elimi;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_equ;
@@ -696,6 +752,7 @@ int control=0;
     private javax.swing.JTree jt_mercado;
     private javax.swing.JPopupMenu pp_elim;
     private javax.swing.JPopupMenu pp_jugador;
+    private javax.swing.JPopupMenu pp_transferencia;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JTextField tf_ciudad;
     private javax.swing.JTextField tf_estadio;
