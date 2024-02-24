@@ -52,6 +52,7 @@ public class Boroaa extends javax.swing.JFrame {
         sp_edad = new javax.swing.JSpinner();
         jb_posicion = new javax.swing.JComboBox<>();
         bt_jugador = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
         jd_transferencia = new javax.swing.JDialog();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,6 +60,10 @@ public class Boroaa extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_mercado = new javax.swing.JTree();
         bt_florentino = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         pp_jugador = new javax.swing.JPopupMenu();
         jmi_modificar = new javax.swing.JMenuItem();
         jmi_eliminar = new javax.swing.JMenuItem();
@@ -72,6 +77,7 @@ public class Boroaa extends javax.swing.JFrame {
         btl_equ = new javax.swing.JButton();
         btl_juga = new javax.swing.JButton();
         btl_trans = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_equ = new javax.swing.JMenuItem();
@@ -79,14 +85,19 @@ public class Boroaa extends javax.swing.JFrame {
         jmi_trans = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
+        jLabel6.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
         jLabel6.setText("Crear Equipos");
 
+        jLabel7.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jLabel7.setText("País del Equipo");
 
+        jLabel8.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jLabel8.setText("Nombre del Equipo");
 
+        jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jLabel9.setText("Ciudad del Equipo");
 
+        jLabel10.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
         jLabel10.setText("Estadio");
 
         tf_ciudad.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +112,8 @@ public class Boroaa extends javax.swing.JFrame {
             }
         });
 
+        bt_agregar.setFont(new java.awt.Font("MS Reference Sans Serif", 3, 18)); // NOI18N
+        bt_agregar.setForeground(new java.awt.Color(0, 0, 51));
         bt_agregar.setText("Crear equipo");
         bt_agregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,7 +132,7 @@ public class Boroaa extends javax.swing.JFrame {
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(tf_ciudad))
+                        .addComponent(tf_ciudad, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addGroup(jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -131,9 +144,9 @@ public class Boroaa extends javax.swing.JFrame {
                     .addGroup(jd_equipoLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(78, 78, 78)
-                        .addComponent(tf_estadio, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                        .addComponent(tf_estadio))
                     .addComponent(jLabel6))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jd_equipoLayout.setVerticalGroup(
             jd_equipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,27 +171,41 @@ public class Boroaa extends javax.swing.JFrame {
                     .addComponent(tf_estadio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bt_agregar)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jd_jugador.setBackground(new java.awt.Color(102, 102, 0));
+        jd_jugador.setFocusTraversalPolicyProvider(true);
+
+        jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Crear Jugadores");
 
+        jLabel3.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
         jLabel3.setText("Nombre");
 
+        jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
         jLabel4.setText("Edad");
 
+        jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         jLabel5.setText("Posición");
 
         sp_edad.setModel(new javax.swing.SpinnerNumberModel(15, 15, 45, 1));
 
         jb_posicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Portero", "Defensa", "Mediocampista", "Delantero", "Aguatero" }));
 
+        bt_jugador.setFont(new java.awt.Font("MS Reference Sans Serif", 3, 18)); // NOI18N
         bt_jugador.setText("Crear jugador");
         bt_jugador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_jugadorMouseClicked(evt);
             }
         });
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imags/Captura de pantalla 2024-02-23 185504.png"))); // NOI18N
 
         javax.swing.GroupLayout jd_jugadorLayout = new javax.swing.GroupLayout(jd_jugador.getContentPane());
         jd_jugador.getContentPane().setLayout(jd_jugadorLayout);
@@ -187,12 +214,12 @@ public class Boroaa extends javax.swing.JFrame {
             .addGroup(jd_jugadorLayout.createSequentialGroup()
                 .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_jugadorLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabel2))
+                        .addGap(14, 14, 14)
+                        .addComponent(bt_jugador))
                     .addGroup(jd_jugadorLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(24, 24, 24)
                         .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt_jugador)
+                            .addComponent(jLabel2)
                             .addGroup(jd_jugadorLayout.createSequentialGroup()
                                 .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
@@ -202,15 +229,17 @@ public class Boroaa extends javax.swing.JFrame {
                                 .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tf_name)
                                     .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jb_posicion, 0, 160, Short.MAX_VALUE))))))
-                .addContainerGap(187, Short.MAX_VALUE))
+                                    .addComponent(jb_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(31, 31, 31)
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_jugadorLayout.setVerticalGroup(
             jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_jugadorLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2)
-                .addGap(25, 25, 25)
+                .addGap(32, 32, 32)
                 .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,11 +251,18 @@ public class Boroaa extends javax.swing.JFrame {
                 .addGroup(jd_jugadorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jb_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(bt_jugador)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(49, 49, 49))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_jugadorLayout.createSequentialGroup()
+                .addComponent(jLabel13)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jd_transferencia.setBackground(new java.awt.Color(255, 255, 153));
+        jd_transferencia.setForeground(new java.awt.Color(255, 0, 204));
+
+        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 1, 48)); // NOI18N
         jLabel11.setText("Transferencias");
 
         jl_jugadores.setModel(new DefaultListModel());
@@ -246,45 +282,94 @@ public class Boroaa extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jt_mercado);
 
+        bt_florentino.setFont(new java.awt.Font("MS Reference Sans Serif", 3, 24)); // NOI18N
+        bt_florentino.setForeground(new java.awt.Color(255, 0, 0));
         bt_florentino.setText("Here we go");
+        bt_florentino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         bt_florentino.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_florentinoMouseClicked(evt);
             }
         });
 
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imags/OIP.jpg"))); // NOI18N
+        jLabel12.setText("jLabel12");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 279, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel15.setText("|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|");
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel16.setText("|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|°|");
+
         javax.swing.GroupLayout jd_transferenciaLayout = new javax.swing.GroupLayout(jd_transferencia.getContentPane());
         jd_transferencia.getContentPane().setLayout(jd_transferenciaLayout);
         jd_transferenciaLayout.setHorizontalGroup(
             jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_transferenciaLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-            .addGroup(jd_transferenciaLayout.createSequentialGroup()
                 .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_transferenciaLayout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jLabel11))
+                        .addGap(20, 20, 20)
+                        .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jd_transferenciaLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(bt_florentino, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel16))
+                    .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel15))
+                    .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(bt_florentino, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jd_transferenciaLayout.setVerticalGroup(
             jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_transferenciaLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel11)
-                .addGap(29, 29, 29)
-                .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(bt_florentino)
-                .addGap(20, 20, 20))
+                .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jd_transferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bt_florentino, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_transferenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jmi_modificar.setText("Modificar");
@@ -366,6 +451,9 @@ public class Boroaa extends javax.swing.JFrame {
         });
         jToolBar1.add(btl_trans);
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imags/Captura de pantalla 2024-02-23 190718.png"))); // NOI18N
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -378,16 +466,23 @@ public class Boroaa extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 204));
@@ -658,12 +753,16 @@ public class Boroaa extends javax.swing.JFrame {
 
     private void jt_mercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_mercadoMouseClicked
         // TODO add your handling code here:
+        try{
         if (evt.isMetaDown()) {
             Object com=jt_mercado.getSelectionPath().getLastPathComponent();
             DefaultMutableTreeNode del=(DefaultMutableTreeNode)com;
             if (del.getUserObject()instanceof Equipos) {
                 pp_transferencia.show(jd_transferencia, evt.getX(), evt.getY());
             }
+        }
+        }catch(Exception ex){
+            
         }
     }//GEN-LAST:event_jt_mercadoMouseClicked
 
@@ -722,6 +821,11 @@ int control=0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -734,6 +838,7 @@ int control=0;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JToolBar jToolBar1;
