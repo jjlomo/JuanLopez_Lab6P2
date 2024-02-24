@@ -78,6 +78,7 @@ public class Boroaa extends javax.swing.JFrame {
         btl_juga = new javax.swing.JButton();
         btl_trans = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_equ = new javax.swing.JMenuItem();
@@ -454,18 +455,18 @@ public class Boroaa extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imags/Captura de pantalla 2024-02-23 190718.png"))); // NOI18N
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
 
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imags/Captura de pantalla 2024-02-23 201617.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14)
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -473,15 +474,15 @@ public class Boroaa extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel14)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel17))
+                    .addComponent(jLabel14))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -581,30 +582,6 @@ public class Boroaa extends javax.swing.JFrame {
         jb_posicion.setSelectedItem("Portero");
         sp_edad.setValue(15);
     }//GEN-LAST:event_bt_jugadorMouseClicked
-
-    private void btl_equMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_equMouseClicked
-        // TODO add your handling code here:
-        jd_equipo.pack(); 
-        jd_equipo.setLocationRelativeTo(this);
-        jd_equipo.setModal(true);
-        jd_equipo.setVisible(true);
-    }//GEN-LAST:event_btl_equMouseClicked
-
-    private void btl_jugaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_jugaMouseClicked
-        // TODO add your handling code here:
-        jd_jugador.pack(); 
-        jd_jugador.setLocationRelativeTo(this);
-        jd_jugador.setModal(true);
-        jd_jugador.setVisible(true);
-    }//GEN-LAST:event_btl_jugaMouseClicked
-
-    private void btl_transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_transMouseClicked
-        // TODO add your handling code here:
-        jd_transferencia.pack(); 
-        jd_transferencia.setLocationRelativeTo(this);
-        jd_transferencia.setModal(true);
-        jd_transferencia.setVisible(true);
-    }//GEN-LAST:event_btl_transMouseClicked
 
     private void jmi_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarActionPerformed
         // TODO add your handling code here:
@@ -776,6 +753,30 @@ public class Boroaa extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jmi_eliActionPerformed
 
+    private void btl_transMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_transMouseClicked
+        // TODO add your handling code here:
+        jd_transferencia.pack();
+        jd_transferencia.setLocationRelativeTo(this);
+        jd_transferencia.setModal(true);
+        jd_transferencia.setVisible(true);
+    }//GEN-LAST:event_btl_transMouseClicked
+
+    private void btl_jugaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_jugaMouseClicked
+        // TODO add your handling code here:
+        jd_jugador.pack();
+        jd_jugador.setLocationRelativeTo(this);
+        jd_jugador.setModal(true);
+        jd_jugador.setVisible(true);
+    }//GEN-LAST:event_btl_jugaMouseClicked
+
+    private void btl_equMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btl_equMouseClicked
+        // TODO add your handling code here:
+        jd_equipo.pack();
+        jd_equipo.setLocationRelativeTo(this);
+        jd_equipo.setModal(true);
+        jd_equipo.setVisible(true);
+    }//GEN-LAST:event_btl_equMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -826,6 +827,7 @@ int control=0;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
